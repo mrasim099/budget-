@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script defer src="./app.js"></script>
+
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="top-grid">
+    <!-- Budget Card -->
+    <div class="card">
+      <h2>Budget</h2>
+      <input type="number" id="budgetInput" placeholder="Enter Total Amount" min="0">
+      <button class="btn-primary" onclick="setBudget()">Set Budget</button>
+    </div>
+
+    <!-- Expense Card -->
+    <div class="card">
+      <h2>Expenses</h2>
+      <input type="text" id="expTitle" placeholder="Enter Title of Product">
+      <input type="number" id="expCost" placeholder="Enter Cost of Product" min="0">
+      <button class="btn-primary" onclick="addExpense()">Check Amount</button>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary">
+    <div class="summary-item">
+      <label>Total Budget</label>
+      <span id="totalBudget">0</span>
+    </div>
+    <div class="summary-item">
+      <label>Expenses</label>
+      <span id="totalExpenses">0</span>
+    </div>
+    <div class="summary-item">
+      <label>Balance</label>
+      <span id="balance">0</span>
+    </div>
+  </div>
+
+  <!-- Expense List -->
+  <div class="card list-card">
+    <h2>Expense List</h2>
+    <div id="expenseList"><p class="empty-msg">No expenses added yet.</p></div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h3>Edit Expense</h3>
+    <input type="text" id="editTitle" placeholder="Title">
+    <input type="number" id="editCost" placeholder="Cost" min="0">
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveEdit()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+</body>
+</html>
